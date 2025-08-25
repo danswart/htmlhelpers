@@ -1,0 +1,17 @@
+Package: htmlhelpers
+Title: Helper Functions for Those Who Can't Write HTML Code for Media Files
+Version: 0.0.0.9000
+Authors@R: 
+    person("Dan", "Swart", , "danswartcpa@gmail.com", role = c("aut", "cre"))
+Description: The `htmlhelpers` package is for those of us who understand what an html file is, and what it is for, but cannot write html code by heart.  The package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    htmltools,
+    tools
