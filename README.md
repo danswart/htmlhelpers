@@ -1,33 +1,36 @@
----
-title: "Using htmlhelpers with Quarto and R Markdown"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Using htmlhelpers with Quarto and R Markdown}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  eval = FALSE  # Set to FALSE since these are examples
-)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# htmlhelpers
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The `htmlhelpers` package is for those who understand what an html file
+is, and what it is for, but cannot write html code by heart. The package
+makes it easy to embed media files (videos, images, PDFs) into your
+Quarto documents, R Markdown files, and Shiny apps without writing HTML
+code manually.
+
+## Installation
+
+You can install the development version of htmlhelpers from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("danswart/htmlhelpers")
 ```
-
-```{r setup}
-library(htmlhelpers)
-```
-
-## Introduction
-
-The `htmlhelpers` package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
 
 ## Quick Start with Package Sample Files
 
-The package includes sample media files for testing and learning. Here's how to use them:
+The package includes sample media files for testing and learning. Here’s
+how to use them:
 
-```{r}
+``` r
+
 # Get paths to sample files included with the package
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
@@ -42,11 +45,30 @@ html4image(sample_image, alt = "Sample animation")
 html4pdf(sample_pdf, height = "600px")
 ```
 
+## Note on Package Sample Files
+
+The sample files included with htmlhelpers are for demonstration. Due to
+browser security, if you want to use them for reference, you need to
+copy them to your project:
+
+``` r
+
+# In your Quarto document or project:
+# Copy the sample file to current project
+sample_source <- system.file("extdata", "media", "sample.mp4", 
+                            package = "htmlhelpers")
+file.copy(sample_source, "sample.mp4", overwrite = TRUE)
+
+# Now use the local copy
+html4video("sample.mp4")
+```
+
 ## Using Your Own Files
 
 For your own media files, use relative or absolute paths:
 
-```{r}
+``` r
+
 # Relative paths (most common)
 html4video("videos/my_presentation.mp4")
 html4image("images/my_plot.png", alt = "My plot")
@@ -65,8 +87,9 @@ html4video(here::here("media", "video.mp4"))
 
 Using package samples to demonstrate:
 
-````markdown
-```{r}`r ''`
+```` markdown
+```{r}
+
 # Get sample files
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
@@ -85,8 +108,8 @@ html4image(sample_image,
 
 With your own files:
 
-````markdown
-```{r}`r ''`
+```` markdown
+```{r}
 # Your local files
 html4video("my_videos/presentation.mp4")
 html4image("my_images/diagram.png", 
@@ -99,8 +122,8 @@ html4image("my_images/diagram.png",
 
 Sometimes you need the exact HTML code:
 
-````markdown
-```{r}`r ''`
+```` markdown
+```{r}
 # Using sample file
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
@@ -112,7 +135,7 @@ html4video(sample_video, width = "80%", copy_paste = TRUE)
 
 This prints HTML code that you can copy and paste into a raw HTML block:
 
-````markdown
+```` markdown
 ```{=html}
 <div style="text-align:center;">
   <video controls style="width:80%">
@@ -127,8 +150,8 @@ This prints HTML code that you can copy and paste into a raw HTML block:
 
 Using package samples:
 
-````markdown
-```{r results='asis'}`r ''`
+```` markdown
+```{r results='asis'}
 # Get all sample videos
 sample_dir <- system.file("extdata", "media", package = "htmlhelpers")
 video_files <- list.files(sample_dir, pattern = "\\.mp4$", full.names = TRUE)
@@ -142,8 +165,8 @@ for (video in video_files) {
 
 Or with your own files:
 
-````markdown
-```{r results='asis'}`r ''`
+```` markdown
+```{r results='asis'}
 # Your local image gallery
 image_files <- list.files("my_images", pattern = "\\.png$", full.names = TRUE)
 
@@ -158,7 +181,8 @@ for (img in image_files) {
 
 ### 4. Conditional Display
 
-```{r}
+``` r
+
 # Using sample files for demonstration
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
@@ -177,18 +201,18 @@ if (p_value < 0.05) {
 
 First, add CSS to your document:
 
-````markdown
+``` markdown
 ---
 format:
   html:
     css: styles.css
 ---
-````
+```
 
 Then use the `class` and `id` parameters:
 
-````markdown
-```{r}`r ''`
+```` markdown
+```{r}
 # Using sample files
 sample_image <- system.file("extdata", "images", "sample.jpg", 
                            package = "htmlhelpers")
@@ -215,25 +239,25 @@ html4video(sample_video,
 
 Create tabbed content with different media types using package samples:
 
-````markdown
+```` markdown
 ::: {.panel-tabset}
 
 ## Video Demo
-```{r}`r ''`
+```{r}
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
 html4video(sample_video, width = "100%")
 ```
 
 ## PDF Document
-```{r}`r ''`
+```{r}
 sample_pdf <- system.file("extdata", "documents", "sample.pdf", 
                          package = "htmlhelpers")
 html4pdf(sample_pdf, height = "500px")
 ```
 
 ## Image
-```{r}`r ''`
+```{r}
 sample_image <- system.file("extdata", "images", "sample.png", 
                            package = "htmlhelpers")
 html4image(sample_image, 
@@ -248,12 +272,12 @@ html4image(sample_image,
 
 Display media side-by-side:
 
-````markdown
+```` markdown
 :::: {.columns}
 
 ::: {.column width="50%"}
 ### Sample Video
-```{r}`r ''`
+```{r}
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
 html4video(sample_video, width = "100%")
@@ -262,7 +286,7 @@ html4video(sample_video, width = "100%")
 
 ::: {.column width="50%"}
 ### Sample Image
-```{r}`r ''`
+```{r}
 sample_image <- system.file("extdata", "images", "sample.png", 
                            package = "htmlhelpers")
 html4image(sample_image, 
@@ -276,13 +300,13 @@ html4image(sample_image,
 
 ### Callout Blocks with Media
 
-````markdown
+```` markdown
 ::: {.callout-tip}
 ## Video Tutorial
 
 Watch this sample video:
 
-```{r}`r ''`
+```{r}
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
 html4video(sample_video, width = "100%")
@@ -294,10 +318,10 @@ html4video(sample_video, width = "100%")
 
 ### Slide with Embedded Video
 
-````markdown
+```` markdown
 ## Results
 
-```{r}`r ''`
+```{r}
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
 html4video(sample_video, 
@@ -311,11 +335,11 @@ html4video(sample_video,
 
 For RevealJS presentations with animations:
 
-````markdown
+```` markdown
 ## Key Findings
 
 ::: {.fragment}
-```{r}`r ''`
+```{r}
 sample_img1 <- system.file("extdata", "images", "sample.png", 
                           package = "htmlhelpers")
 html4image(sample_img1, 
@@ -325,7 +349,7 @@ html4image(sample_img1,
 :::
 
 ::: {.fragment}
-```{r}`r ''`
+```{r}
 sample_img2 <- system.file("extdata", "images", "sample.gif", 
                           package = "htmlhelpers")
 html4image(sample_img2, 
@@ -339,7 +363,8 @@ html4image(sample_img2,
 
 ### Creating a Video Gallery
 
-```{r}
+``` r
+
 create_video_gallery <- function(use_samples = TRUE, video_dir = NULL, 
                                 width = "300px") {
   if (use_samples) {
@@ -372,7 +397,8 @@ create_video_gallery(use_samples = FALSE, video_dir = "my_videos")
 
 ### Responsive Image with Caption
 
-```{r}
+``` r
+
 figure_with_caption <- function(image_path = NULL, 
                                use_sample = TRUE,
                                caption_text, 
@@ -410,7 +436,8 @@ figure_with_caption(image_path = "my_images/plot.png",
 
 ### PDF Viewer with Download Button
 
-```{r}
+``` r
+
 pdf_with_download <- function(pdf_path = NULL, 
                              use_sample = TRUE,
                              height = "600px") {
@@ -446,7 +473,8 @@ pdf_with_download(pdf_path = "my_documents/report.pdf",
 
 The package includes a demo function to quickly see all capabilities:
 
-```{r}
+``` r
+
 # Run full demo with all sample files
 demo_htmlhelpers()
 
@@ -466,45 +494,42 @@ demo_htmlhelpers("pdf")
 
 The htmlhelpers package stores sample files in:
 
-```
-htmlhelpers/
-└── inst/
-    └── extdata/
-        ├── media/
-        │   ├── sample.mp4
-        │   └── sample.mov
-        ├── images/
-        │   ├── sample.png
-        │   ├── sample.jpg
-        │   └── sample.gif
-        └── documents/
-            └── sample.pdf
-```
+    htmlhelpers/
+    └── inst/
+        └── extdata/
+            ├── media/
+            │   ├── sample.mp4
+            │   └── sample.mov
+            ├── images/
+            │   ├── sample.png
+            │   ├── sample.jpg
+            │   └── sample.gif
+            └── documents/
+                └── sample.pdf
 
 ### Your Project Structure
 
 For your own projects, we recommend:
 
-```
-my_project/
-├── index.qmd
-├── analysis.qmd
-├── media/              # Your videos
-│   ├── intro.mp4
-│   └── demo.mov
-├── images/            # Your images
-│   ├── logo.png
-│   └── plots/
-├── documents/         # Your PDFs
-│   └── report.pdf
-└── styles.css         # Custom styling
-```
+    my_project/
+    ├── index.qmd
+    ├── analysis.qmd
+    ├── media/              # Your videos
+    │   ├── intro.mp4
+    │   └── demo.mov
+    ├── images/            # Your images
+    │   ├── logo.png
+    │   └── plots/
+    ├── documents/         # Your PDFs
+    │   └── report.pdf
+    └── styles.css         # Custom styling
 
 ### Path Tips
 
 - For package samples: Always use `system.file("extdata", ...)`
 - For your files: Use relative paths like `"media/video.mp4"`
-- Use forward slashes even on Windows: `"media/video.mp4"` not `"media\\video.mp4"`
+- Use forward slashes even on Windows: `"media/video.mp4"` not
+  `"media\\video.mp4"`
 - For complex projects: `here::here("media", "video.mp4")`
 
 ## Troubleshooting
@@ -512,7 +537,9 @@ my_project/
 ### Common Issues and Solutions
 
 **Sample files not found:**
-```{r}
+
+``` r
+
 # Check if package sample exists
 sample_video <- system.file("extdata", "media", "sample.mp4", 
                            package = "htmlhelpers")
@@ -522,36 +549,35 @@ if (sample_video == "") {
 ```
 
 **Your media files not displaying:**
-```{r}
+
+``` r
+
 # Check if your file exists
 if (!file.exists("my_video.mp4")) {
   stop("File not found. Check your path.")
 }
 ```
 
-**Videos not autoplaying:**
-- Most browsers require `muted = TRUE` for autoplay
-- Some browsers block autoplay entirely
+**Videos not autoplaying:** - Most browsers require `muted = TRUE` for
+autoplay - Some browsers block autoplay entirely
 
-**PDFs not showing:**
-- Try `method = "object"` instead of default iframe
-- Check browser console for errors
+**PDFs not showing:** - Try `method = "object"` instead of default
+iframe - Check browser console for errors
 
 ## Performance Tips
 
-1. **Keep sample files small**: Package samples should be < 1MB each
-2. **Compress your videos**: Use tools like HandBrake
-3. **Optimize images**: Use appropriate formats (PNG for graphics, JPG for photos)
-4. **Use lazy loading for many images**:
-   ```{r}
-   html4image("image.jpg", 
-              alt = "Description",
-              style = "loading:lazy")
-   ```
+1.  **Keep sample files small**: Package samples should be \< 1MB each
 
-## See Also
+2.  **Compress your videos**: Use tools like HandBrake
 
-- Run `demo_htmlhelpers()` for interactive examples
-- [Quarto documentation](https://quarto.org)
-- [R Markdown documentation](https://rmarkdown.rstudio.com)
-- Package functions: `?html4video`, `?html4image`, `?html4pdf`
+3.  **Optimize images**: Use appropriate formats (PNG for graphics, JPG
+    for photos)
+
+4.  **Use lazy loading for many images**:
+
+    ``` r
+
+    html4image("image.jpg", 
+               alt = "Description",
+               style = "loading:lazy")
+    ```
