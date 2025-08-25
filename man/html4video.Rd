@@ -2,7 +2,7 @@
 % Please edit documentation in R/html4video.R
 \name{html4video}
 \alias{html4video}
-\title{Embed Video Files in HTML Documents}
+\title{Embed Video Files as HTML in Documents}
 \usage{
 html4video(
   file_path,

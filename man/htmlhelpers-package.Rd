@@ -4,9 +4,17 @@
 \name{htmlhelpers-package}
 \alias{htmlhelpers}
 \alias{htmlhelpers-package}
-\title{htmlhelpers: Helper Functions for Those Who Can't Write HTML Code for Media Files}
+\title{htmlhelpers: Helper Functions for Those Who Can't Write HTML Code to embed Media Files}
 \description{
-The `htmlhelpers` package is for those of us who understand what an html file is, and what it is for, but cannot write html code by heart. The package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
+The `htmlhelpers` package is for those who understand what an html file is, and what it is for, but cannot write html code by heart. The package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/danswart/htmlhelpers}
+  \item Report bugs at \url{https://github.com/danswart/htmlhelpers/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Dan Swart \email{danswartcpa@gmail.com}

@@ -2,7 +2,7 @@
 # File: R/html4pdf.R
 # ============================================================================
 
-#' Embed PDF Files in HTML Documents
+#' Embed PDF Files as HTML in Documents
 #'
 #' Creates an iframe or object element to display PDF files in HTML documents.
 #'

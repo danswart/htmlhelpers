@@ -2,7 +2,7 @@
 % Please edit documentation in R/html4pdf.R
 \name{html4pdf}
 \alias{html4pdf}
-\title{Embed PDF Files in HTML Documents}
+\title{Embed PDF Files as HTML in Documents}
 \usage{
 html4pdf(
   file_path,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/html4image.R
 \name{html4image}
 \alias{html4image}
-\title{Embed Image Files in HTML Documents}
+\title{Embed Image Files as HTML in Documents}
 \usage{
 html4image(
   file_path,

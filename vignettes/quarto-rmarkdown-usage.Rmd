@@ -21,7 +21,7 @@ library(htmlhelpers)
 
 ## Introduction
 
-The `htmlhelpers` package is for those of us who understand what an html file is, and what it is for, but cannot write html code by heart.  The package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
+The `htmlhelpers` package is for those who understand what an html file is, and what it is for, but cannot write html code by heart.  The package makes it easy to embed media files (videos, images, PDFs) into your Quarto documents, R Markdown files, and Shiny apps without writing HTML code manually.
 
 ## Quick Start with Package Sample Files
 

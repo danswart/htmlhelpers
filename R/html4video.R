@@ -2,7 +2,7 @@
 # File: R/html4video.R
 # ============================================================================
 
-#' Embed Video Files in HTML Documents
+#' Embed Video Files as HTML in Documents
 #'
 #' Converts video files (MP4, MOV, WebM, Ogg, AVI, M4V) into HTML5 video elements
 #' for embedding in Quarto documents, R Markdown, or other HTML outputs.

@@ -2,7 +2,7 @@
 # File: R/html4image.R
 # ============================================================================
 
-#' Embed Image Files in HTML Documents
+#' Embed Image Files as HTML in Documents
 #'
 #' Converts image files (PNG, JPG, GIF, SVG, WebP) into HTML img elements
 #' for embedding in Quarto documents, R Markdown, or other HTML outputs.
