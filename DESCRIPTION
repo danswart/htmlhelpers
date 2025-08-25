@@ -15,3 +15,5 @@ VignetteBuilder: knitr
 Imports: 
     htmltools,
     tools
+URL: https://github.com/danswart/htmlhelpers
+BugReports: https://github.com/danswart/htmlhelpers/issues
